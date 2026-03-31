@@ -5,13 +5,34 @@ services:
     container_name: catalogue
     depends_on:
     - mongodb
+  user:
+    build: ./user
+    image: kiran535/user:1.0.0
+    container_name: user
+    depends_on:
+    - redis
+    - mongodb
+  frontend:
+    build: ./frontend
+    image: kiran535/frontend:1.0.0
+    container_name: frontend
+    ports:
+    - "80:80"
+    depends_on:
+    - catalogue
+    - user
+    # - cart
+    # - shipping
+    # - payment
   mongodb:
     build: ./mongodb # it moves to mongodb directory
     image: kiran535/mongodb:1.0.0 # docker build -t joindevops/mongodb:1.0.0
     container_name: mongodb
     volumes:
     - mongodb:/data/db
-
+  redis:
+    image: redis:7.0
+    container_name: redis
 # services:
 #   catalogue:
 #     build:
