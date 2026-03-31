@@ -26,8 +26,8 @@ services:
 #     image: kiran535/mongodb:1.0.0 # docker build -t kiran535/mongodb:1.0.0
 #     container_name: mongodb
 
-# networks:
-#   default:
-#     driver: bridge
-#     name: roboshop
-#     external: false # if true, you need to create manually
+networks:
+  default:
+    driver: bridge
+    name: roboshop
+    external: false # if true, you need to create manually
