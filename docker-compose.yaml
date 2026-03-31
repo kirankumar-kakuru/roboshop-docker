@@ -1,19 +1,33 @@
 services:
   catalogue:
-    build:
-      dockerfile: catalogue.Dockerfile
+    build: ./catalogue
     image: kiran535/catalogue:1.0.0
     container_name: catalogue
     depends_on:
     - mongodb
   mongodb:
-    build: 
-      dockerfile: mongodb.Dockerfile # it moves to mongodb directory
-    image: kiran535/mongodb:1.0.0 # docker build -t kiran535/mongodb:1.0.0
+    build: ./mongodb # it moves to mongodb directory
+    image: kiran535/mongodb:1.0.0 # docker build -t joindevops/mongodb:1.0.0
     container_name: mongodb
+    volumes:
+    - mongodb:/data/db
 
-networks:
-  default:
-    driver: bridge
-    name: roboshop
-    external: false # if true, you need to create manually
+# services:
+#   catalogue:
+#     build:
+#       dockerfile: catalogue.Dockerfile
+#     image: kiran535/catalogue:1.0.0
+#     container_name: catalogue
+#     depends_on:
+#     - mongodb
+#   mongodb:
+#     build: 
+#       dockerfile: mongodb.Dockerfile # it moves to mongodb directory
+#     image: kiran535/mongodb:1.0.0 # docker build -t kiran535/mongodb:1.0.0
+#     container_name: mongodb
+
+# networks:
+#   default:
+#     driver: bridge
+#     name: roboshop
+#     external: false # if true, you need to create manually
