@@ -1,0 +1,19 @@
+services:
+  catalogue:
+    build:
+      dockerfile: catalogue.dockerfile
+    image: kiran535/catalogue:1.0.0
+    container_name: catalogue
+    depends_on:
+    - mongodb
+  mongodb:
+    build: 
+      dockerfile: mongodb.Dockerfile # it moves to mongodb directory
+    image: kiran535/mongodb:1.0.0 # docker build -t kiran535/mongodb:1.0.0
+    containe_name: mongodb
+
+networks:
+  default:
+    driver: bridge
+    name: roboshop
+    external: false # if true, you need to create manually
