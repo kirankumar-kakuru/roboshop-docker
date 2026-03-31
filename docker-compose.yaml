@@ -7,7 +7,7 @@ services:
     - mongodb
   user:
     build: ./user
-    image: kiran535/user:1.0.0
+    image: kiran535/user:1.0.1
     container_name: user
     depends_on:
     - redis
