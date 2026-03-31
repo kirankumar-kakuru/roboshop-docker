@@ -10,7 +10,7 @@ services:
     build: 
       dockerfile: mongodb.Dockerfile # it moves to mongodb directory
     image: kiran535/mongodb:1.0.0 # docker build -t kiran535/mongodb:1.0.0
-    containe_name: mongodb
+    container_name: mongodb
 
 networks:
   default:
