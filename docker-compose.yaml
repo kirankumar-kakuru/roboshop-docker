@@ -1,7 +1,7 @@
 services:
   catalogue:
     build:
-      dockerfile: catalogue.dockerfile
+      dockerfile: catalogue.Dockerfile
     image: kiran535/catalogue:1.0.0
     container_name: catalogue
     depends_on:
