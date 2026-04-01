@@ -19,6 +19,13 @@ services:
     depends_on:
     - redis
     - mongodb
+  shipping:
+    build: ./shipping
+    image: kiran535/shipping:1.0.0
+    container_name: shipping
+    depends_on:
+    - mysql
+    - cart
   frontend:
     build: ./frontend
     image: kiran535/frontend:1.0.0
