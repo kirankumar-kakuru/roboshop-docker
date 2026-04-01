@@ -28,7 +28,7 @@ services:
     - cart
   payment:
     build: ./payment
-    image: joindevops/payment:1.0.0
+    image: kiran535/payment:1.0.0
     container_name: payment
     environment:
       CART_HOST: "cart"
