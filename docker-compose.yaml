@@ -12,6 +12,13 @@ services:
     depends_on:
     - redis
     - mongodb
+  cart:
+    build: ./cart
+    image: kiran535/cart:1.0.0
+    container_name: cart
+    depends_on:
+    - redis
+    - mongodb
   frontend:
     build: ./frontend
     image: kiran535/frontend:1.0.0
@@ -21,7 +28,7 @@ services:
     depends_on:
     - catalogue
     - user
-    # - cart
+    - cart
     # - shipping
     # - payment
   mongodb:
